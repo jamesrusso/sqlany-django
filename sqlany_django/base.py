@@ -474,7 +474,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
             kwargs.update(setting( 'OPTIONS' ))
             self.connection = Database.connect(**kwargs)
             cursor = CursorWrapper(self.connection.cursor())
-            cursor.execute("SET OPTION PUBLIC.reserved_keywords='LIMIT'")
+            #cursor.execute("SET OPTION PUBLIC.reserved_keywords='LIMIT'")
             cursor.execute("SET TEMPORARY OPTION TIMESTAMP_FORMAT='YYYY-MM-DD HH:NN:SS.SSSSSS'")
             connection_created.send(sender=self.__class__, connection=self)
         if not cursor:
